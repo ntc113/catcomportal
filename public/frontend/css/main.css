@@ -429,6 +429,11 @@ padding-bottom: 56.25%;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.8);
 }
+/*  */
+#services .media-body { text-align: justify; }
+#services .media-heading { text-align: center; }
+/*  */
+
 #recent-works {
   padding: 90px 0;
 }
@@ -1087,4 +1092,42 @@ ul.faq li > div h3 {
   text-align: center;
   margin-top: 150px;
   margin-bottom: 150px;
+}
+hr.star-light,
+hr.star-primary {
+    margin: 25px auto 30px;
+    padding: 0;
+    max-width: 250px;
+    border: 0;
+    border-top: solid 5px;
+    text-align: center;
+}
+
+hr.star-light:after,
+hr.star-primary:after {
+    content: "\f005";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 0 .25em;
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+hr.star-light {
+    border-color: #fff;
+}
+
+hr.star-light:after {
+    color: #fff;
+    background-color: #009cd9;
+}
+
+hr.star-primary {
+    border-color: #2c3e50;
+}
+
+hr.star-primary:after {
+    color: #2c3e50;
+    background-color: #fff;
 }
