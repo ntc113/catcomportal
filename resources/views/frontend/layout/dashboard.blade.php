@@ -78,5 +78,5 @@
     </div>
 </section><!--/#testimonial-->
 
-<!-- @include('frontend/layout/partners', $partners) -->
+<!-- {{--@include('frontend/layout/partners', $partners)--}} -->
 @stop
