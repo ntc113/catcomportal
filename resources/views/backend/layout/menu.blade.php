@@ -86,6 +86,13 @@
                     </li>
                 </ul>
             </li>
+            <li class="treeview {{ setActive('admin/partner*') }}"><a href="#"> <i class="fa fa-tint"></i> <span>Partners</span>
+                    <i class="fa fa-angle-left pull-right"></i> </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url(getLang() . '/admin/partner') }}"><i class="fa fa-toggle-up"></i> Partners</a>
+                    </li>
+                </ul>
+            </li>
             <li class="treeview {{ setActive('admin/project*') }}"><a href="#"> <i class="fa fa-gears"></i> <span>Projects</span>
                     <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">

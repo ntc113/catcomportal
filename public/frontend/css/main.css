@@ -1131,3 +1131,11 @@ hr.star-primary:after {
     color: #2c3e50;
     background-color: #fff;
 }
+#partners .row .btn {
+    bottom: 80px;
+    font-size: 20px;
+    position: absolute;
+    z-index: 2;
+}
+.btn.pre { left: 0;}
+.btn.next { right: 0;}

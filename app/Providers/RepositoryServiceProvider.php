@@ -14,6 +14,7 @@ use Fully\Models\Tag;
 use Fully\Models\Video;
 use Fully\Models\Menu;
 use Fully\Models\Slider;
+use Fully\Models\Partner;
 use Fully\Models\Setting;
 use Fully\Repositories\Article\ArticleRepository;
 use Fully\Repositories\Article\CacheDecorator as ArticleCacheDecorator;
@@ -37,6 +38,8 @@ use Fully\Repositories\Menu\MenuRepository;
 use Fully\Repositories\Menu\CacheDecorator as MenuCacheDecorator;
 use Fully\Repositories\Slider\SliderRepository;
 use Fully\Repositories\Slider\CacheDecorator as SliderCacheDecorator;
+use Fully\Repositories\Partner\PartnerRepository;
+use Fully\Repositories\Partner\CacheDecorator as PartnerCacheDecorator;
 use Fully\Repositories\Setting\SettingRepository;
 use Fully\Repositories\Setting\CacheDecorator as SettingCacheDecorator;
 use Fully\Services\Cache\FullyCache;
@@ -238,6 +241,23 @@ class RepositoryServiceProvider extends ServiceProvider
 
             if ($app['config']->get('fully.cache') === true && $app['config']->get('is_admin', false) == false) {
                 $slider = new SliderCacheDecorator(
+                    $slider,
+                    new FullyCache($app['cache'], 'sliders')
+                );
+            }
+
+            return $slider;
+        });
+
+        // partner
+        $app->bind('Fully\Repositories\Partner\PartnerInterface', function ($app) {
+
+            $slider = new PartnerRepository(
+                new Partner()
+            );
+
+            if ($app['config']->get('fully.cache') === true && $app['config']->get('is_admin', false) == false) {
+                $slider = new PartnerCacheDecorator(
                     $slider,
                     new FullyCache($app['cache'], 'sliders')
                 );

@@ -36,6 +36,16 @@ return [
             'image_dir' => '/uploads/slider/',
         ],
 
+        'partner' => [
+
+            'image_size' => [
+                'width'  => 250,
+                'height' => 250
+            ],
+
+            'image_dir' => '/uploads/partner/',
+        ],
+
         'article' => [
 
             'image_size' => [

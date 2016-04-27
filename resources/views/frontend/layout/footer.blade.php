@@ -43,7 +43,25 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-3 col-sm-6">
+             <div class="col-md-3 col-sm-6">
+                <h4>{!!trans('fully.about_us')!!}</h4>
+
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+
+                <p>Pellentesque habitant morbi tristique senectus.</p>
+                <hr>
+                <ul class="social clearfix">
+                    <li><a href="{!! $settings['facebook'] !!}" title="Catcom Facebook" data-original-title="Facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook icon-facebook"></i></a></li>
+                    <li><a href="{!! $settings['google_plus'] !!}" title="Catcom Googleplus" data-original-title="Google Plus" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-google-plus icon-google-plus"></i></a></li>
+                    <li><a href="{!! $settings['twitter'] !!}" title="Catcom Twitter" data-original-title="Twitter" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-twitter icon-twitter"></i></a></li>
+                    <li><a href="{!! $settings['youtube'] !!}" title="Catcom Youtube" data-original-title="Youtube" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-youtube icon-youtube"></i></a></li>
+                    <li><a href="{!! $settings['linkedin'] !!}" title="Catcom Linkedin" data-original-title="Linkedin" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-linkedin icon-linkedin"></i></a></li>
+                    <li><a href="{!! $settings['pinterest'] !!}" title="CatCom Pinterest" data-original-title="Pinterest" data-toggle="tooltip" data-placement="bottom"><i class="fa icon-pinterest"></i></a></li>
+                    <li><a href="{!! $settings['flickr'] !!}" title="Catcom Flickr" data-original-title="Flickr" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-skype icon-flickr"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- <div class="col-md-3 col-sm-6">
                 <h4>{!!trans('fully.latest_blog')!!}</h4>
 
                 <div>
@@ -65,54 +83,29 @@
                 </div>
             </div>
 
-             <div class="col-md-3 col-sm-6">
-                <h4>{!!trans('fully.about_us')!!}</h4>
-
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
-
-                <p>Pellentesque habitant morbi tristique senectus.</p>
-                <hr>
-                <ul class="social clearfix">
-                    <li><a href="#" title="" data-original-title="Facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook icon-facebook"></i></a></li>
-                    <li><a href="#" title="" data-original-title="Google Plus" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-google-plus icon-google-plus"></i></a></li>
-                    <li><a href="#" title="" data-original-title="Twitter" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-twitter icon-twitter"></i></a></li>
-                    <li><a href="#" title="" data-original-title="Youtube" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-youtube icon-youtube"></i></a></li>
-                    <li><a href="#" title="" data-original-title="Linkedin" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-linkedin icon-linkedin"></i></a></li>
-                    {{-- <li><a href="#" title="" data-original-title="Dribbble" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-dribbble"></i></a></li> --}}
-                    <li><a href="#" title="" data-original-title="Skype" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-skype icon-skype"></i></a></li>
-                </ul>
-            </div>
-
-
             <div class="col-md-3 col-sm-6">
                 <h4>{!! trans('fully.tags')!!}</h4>
-            <div class="tagcloud">
-                @if(isset($tags))
-                    @foreach($tags as $tag)
-                        <a href="{!! URL::route('dashboard.tag', array('tag'=>$tag->slug)) !!}">{!! $tag->name !!}</a>
-                    @endforeach
-                @endif
-            </div>
-            </div>
+                <div class="tagcloud">
+                    @if(isset($tags))
+                        @foreach($tags as $tag)
+                            <a href="{!! URL::route('dashboard.tag', array('tag'=>$tag->slug)) !!}">{!! $tag->name !!}</a>
+                        @endforeach
+                    @endif
+                </div>
+            </div> -->
 
             <div class="col-md-3 col-sm-6">
                 <h4>{!! trans('fully.address')!!}</h4>
                 <address>
-                    <strong>CatCom JSC.</strong><br>
-                    Block No. 9, Van Phuc Ward, Ha Dong District, Hanoi, Vietnam <br>
+                    <strong>{!! $settings['cc_name'] !!}</strong><br>
+                    {!! $settings['cc_address'] !!} <br>
 
-                    <abbr title="Phone">{!! trans('fully.phone_number')!!}</abbr> +84(91) 6868689
+                    <abbr title="Phone">{!! trans('fully.phone_number')!!}: </abbr>{!! $settings['cc_phone'] !!}
                 </address>
-                {{-- <h4>{!!  trans('fully.newsletter') !!}</h4> --}}
+            </div>
 
-                {{-- {!! Form::open(array('route' => 'frontend.maillist.post', 'id'=>'newsletterForm', 'novalidate'=>'novalidate')) !!} --}}
-                <!-- <div class="input-group">
-                    <input type="text" class="form-control" autocomplete="off" placeholder="{!!  trans('fully.enter_your_email') !!}">
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="submit">{!!  trans('fully.button_save') !!}</button>
-                    </span>
-                </div> -->
-                {{-- {!! Form::close() !!} --}}
+            <div class="col-md-6 col-sm-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59591.249096755084!2d105.75236872219769!3d21.01455014097551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab55e433c57f%3A0x1a4a47e69eb3c80!2zQjNDLCBMUzIsIEtodSDEkcO0IHRo4buLIE5hbSBUcnVuZyBZw6puLCBUcnVuZyBIb8OgLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1461724512654" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

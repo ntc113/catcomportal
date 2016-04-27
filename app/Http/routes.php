@@ -174,6 +174,10 @@ Route::group(array('prefix' => LaravelLocalization::getCurrentLocale()), functio
         Route::post('slider/{id}/toggle-publish', array('as' => 'admin.slider.toggle-publish',
                                                          'uses' => 'SliderController@togglePublish', ))->where('id', '[0-9]+');
 
+        // ajax - partner
+        Route::post('partner/{id}/toggle-publish', array('as' => 'admin.partner.toggle-publish',
+                                                         'uses' => 'PartnerController@togglePublish', ))->where('id', '[0-9]+');
+
         // file upload photo gallery
         Route::post('/photo-gallery/upload/{id}', array('as' => 'admin.photo.gallery.upload.image',
                                                         'uses' => 'PhotoGalleryController@upload', ))->where('id', '[0-9]+');
@@ -208,6 +212,17 @@ Route::group(array('prefix' => LaravelLocalization::getCurrentLocale()), functio
                                                  'uses' => 'SliderController@upload', ))->where('id', '[0-9]+');
         Route::post('/slider-delete-image', array('as' => 'admin.slider.delete.image',
                                                   'uses' => 'SliderController@deleteImage', ));
+
+        // partner
+        Route::resource('partner', 'PartnerController');
+        Route::get('partner/{id}/delete', array('as' => 'admin.partner.delete',
+                                               'uses' => 'PartnerController@confirmDestroy', ))->where('id', '[0-9]+');
+
+        // file upload partner
+        Route::post('/partner/upload/{id}', array('as' => 'admin.partner.upload.image',
+                                                 'uses' => 'PartnerController@upload', ))->where('id', '[0-9]+');
+        Route::post('/partner-delete-image', array('as' => 'admin.partner.delete.image',
+                                                  'uses' => 'PartnerController@deleteImage', ));
 
         // menu-managment
         Route::resource('menu', 'MenuController');

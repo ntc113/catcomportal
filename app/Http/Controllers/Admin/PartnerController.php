@@ -9,31 +9,31 @@ use File;
 use Image;
 use Config;
 use Flash;
-use Fully\Models\Slider;
+use Fully\Models\Partner;
 use Fully\Http\Controllers\Controller;
-use Fully\Repositories\Slider\SliderInterface;
+use Fully\Repositories\Partner\PartnerInterface;
 
 /**
- * Class SliderController.
+ * Class PartnerController.
  *
  * @author Sefa Karagöz <karagozsefa@gmail.com>
  */
-class SliderController extends Controller
+class PartnerController extends Controller
 {
-    protected $slider;
+    protected $partner;
     protected $width;
     protected $height;
     protected $imgDir;
 
-    public function __construct(SliderInterface $slider)
+    public function __construct(PartnerInterface $partner)
     {
         View::share('active', 'plugins');
 
         $config = Config::get('fully');
-        $this->width = $config['modules']['slider']['image_size']['width'];
-        $this->height = $config['modules']['slider']['image_size']['height'];
-        $this->imgDir = $config['modules']['slider']['image_dir'];
-        $this->slider = $slider;
+        $this->width = $config['modules']['partner']['image_size']['width'];
+        $this->height = $config['modules']['partner']['image_size']['height'];
+        $this->imgDir = $config['modules']['partner']['image_dir'];
+        $this->partner = $partner;
     }
 
     /**
@@ -43,9 +43,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::where('lang', getLang())->orderBy('created_at', 'DESC')->paginate(15);
+        $partners = Partner::where('lang', getLang())->orderBy('created_at', 'DESC')->paginate(15);
 
-        return view('backend.slider.index', compact('sliders'));
+        return view('backend.partner.index', compact('partners'));
     }
 
     /**
@@ -55,7 +55,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.slider.create');
+        return view('backend.partner.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class SliderController extends Controller
     public function store()
     {
         $formData = Input::all();
-        $slider = new Slider();
+        $partner = new Partner();
 
         $upload_success = null;
 
@@ -82,22 +82,22 @@ class SliderController extends Controller
             // resizing an uploaded file
             Image::make($destinationPath.$fileName)->resize($this->width, $this->height)->save($destinationPath.$fileName);
 
-            $slider->file_name = $fileName;
-            $slider->file_size = $fileSize;
-            $slider->lang = getLang();
+            $partner->file_name = $fileName;
+            $partner->file_size = $fileSize;
+            $partner->lang = getLang();
 
-            $slider->path = $this->imgDir.$fileName;
+            $partner->path = $this->imgDir.$fileName;
         }
 
-        $slider->title = $formData['title'];
-        $slider->link = $formData['link'];
-        $slider->description = $formData['description'];
+        $partner->title = $formData['title'];
+        $partner->description = $formData['description'];
+        // $partner->link = $formData['link'];
 
-        $slider->save();
+        $partner->save();
 
-        Flash::message('Slider was successfully added');
+        Flash::message('Partner was successfully added');
 
-        return langRedirectRoute('admin.slider.index');
+        return langRedirectRoute('admin.partner.index');
     }
 
     /**
@@ -109,9 +109,9 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $slider = Slider::findOrFail($id);
+        $partner = Partner::findOrFail($id);
 
-        return view('backend.slider.edit', compact('slider'));
+        return view('backend.partner.edit', compact('partner'));
     }
 
     /**
@@ -124,14 +124,14 @@ class SliderController extends Controller
     public function update($id)
     {
         $formData = Input::all();
-        $slider = Slider::findOrFail($id);
+        $partner = Partner::findOrFail($id);
 
         if (isset($formData['image'])) {
             if ($file = $formData['image']) {
 
                 // delete old image
                 $destinationPath = public_path().$this->imgDir;
-                File::delete($destinationPath.$slider->file_name);
+                File::delete($destinationPath.$partner->file_name);
 
                 $destinationPath = public_path().$this->imgDir;
                 $fileName = $file->getClientOriginalName();
@@ -144,19 +144,19 @@ class SliderController extends Controller
                     // resizing an uploaded file
                     Image::make($destinationPath.$fileName)->resize($this->width, $this->height)->save($destinationPath.$fileName);
 
-                    $slider->file_name = $fileName;
-                    $slider->file_size = $fileSize;
-                    $slider->path = $this->imgDir.$fileName;
+                    $partner->file_name = $fileName;
+                    $partner->file_size = $fileSize;
+                    $partner->path = $this->imgDir.$fileName;
                 }
             }
         }
-        $slider->title = $formData['title'];
-        $slider->description = $formData['description'];
-        $slider->save();
+        $partner->title = $formData['title'];
+        $partner->description = $formData['description'];
+        $partner->save();
 
-        Flash::message('Slider was successfully updated');
+        Flash::message('Partner was successfully updated');
 
-        return langRedirectRoute('admin.slider.index');
+        return langRedirectRoute('admin.partner.index');
     }
 
     /**
@@ -168,26 +168,26 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        $slider = Slider::with('images')->findOrFail($id);
+        $partner = Partner::with('images')->findOrFail($id);
         $destinationPath = public_path().$this->imgDir;
 
-        File::delete($destinationPath.$slider->file_name);
-        $slider->delete();
+        File::delete($destinationPath.$partner->file_name);
+        $partner->delete();
 
-        Flash::message('Slider was successfully deleted');
+        Flash::message('Partner was successfully deleted');
 
-        return langRedirectRoute('admin.slider.index');
+        return langRedirectRoute('admin.partner.index');
     }
 
     public function confirmDestroy($id)
     {
-        $slider = Slider::findOrFail($id);
+        $partner = Partner::findOrFail($id);
 
-        return view('backend.slider.confirm-destroy', compact('slider'));
+        return view('backend.partner.confirm-destroy', compact('partner'));
     }
 
     public function togglePublish($id)
     {
-        return $this->slider->togglePublish($id);
+        return $this->partner->togglePublish($id);
     }
 }

@@ -8,12 +8,12 @@
 {!! HTML::script('jasny-bootstrap/js/jasny-bootstrap.min.js') !!}
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1> Slider
-        <small> | Update Slider</small>
+    <h1> Partner
+        <small> | Update Partner</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{!! url(getLang(). '/admin/slider') !!}"><i class="fa fa-tint"></i> Slider</a></li>
-        <li class="active">Update Slider</li>
+        <li><a href="{!! url(getLang(). '/admin/partner') !!}"><i class="fa fa-tint"></i> Partner</a></li>
+        <li class="active">Update Partner</li>
     </ol>
 </section>
 <br>
@@ -21,29 +21,16 @@
 <div class="container">
 
 
-    {!! Form::open( array( 'route' => array( getLang() . '.admin.slider.update', $slider->id), 'method' => 'PATCH', 'files'=>true)) !!}
+    {!! Form::open( array( 'route' => array( getLang() . '.admin.partner.update', $partner->id), 'method' => 'PATCH', 'files'=>true)) !!}
 
     <!-- Title -->
     <div class="control-group {!! $errors->has('title') ? 'has-error' : '' !!}">
         <label class="control-label" for="title">Title</label>
 
         <div class="controls">
-            {!! Form::text('title', $slider->title, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))) !!}
+            {!! Form::text('title', $partner->title, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))) !!}
             @if ($errors->first('title'))
             <span class="help-block">{!! $errors->first('title') !!}</span>
-            @endif
-        </div>
-    </div>
-    <br>
-
-    <!-- Link -->
-    <div class="control-group {!! $errors->has('link') ? 'has-error' : '' !!}">
-        <label class="control-label" for="link">Link</label>
-
-        <div class="controls">
-            {!! Form::text('link', $slider->link, array('class'=>'form-control', 'id' => 'link', 'placeholder'=>'Link', 'value'=>Input::old('link'))) !!}
-            @if ($errors->first('link'))
-            <span class="help-block">{!! $errors->first('link') !!}</span>
             @endif
         </div>
     </div>
@@ -54,7 +41,7 @@
         <label class="control-label" for="description">Description</label>
 
         <div class="controls">
-            {!! Form::textarea('description', $slider->description, array('class'=>'form-control', 'id' => 'description', 'placeholder'=>'Description', 'value'=>Input::old('description'))) !!}
+            {!! Form::textarea('description', $partner->description, array('class'=>'form-control', 'id' => 'description', 'placeholder'=>'Description', 'value'=>Input::old('description'))) !!}
             @if ($errors->first('description'))
             <span class="help-block">{!! $errors->first('description') !!}</span>
             @endif
@@ -65,7 +52,7 @@
     <!-- Image -->
     <div class="fileinput fileinput-new control-group {!! $errors->has('image') ? 'has-error' : '' !!}" data-provides="fileinput">
         <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-            <img data-src="" {!! (($slider->path) ? "src='".url($slider->path)."'" : null) !!} alt="...">
+            <img data-src="" {!! (($partner->path) ? "src='".url($partner->path)."'" : null) !!} alt="...">
         </div>
         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
         <div>
@@ -79,7 +66,7 @@
     <div class="control-group {!! $errors->has('is_published') ? 'has-error' : '' !!}">
 
         <div class="controls">
-            <label class="">{!! Form::checkbox('is_published', 'is_published',$slider->is_published) !!} Publish ?</label>
+            <label class="">{!! Form::checkbox('is_published', 'is_published',$partner->is_published) !!} Publish ?</label>
             @if ($errors->first('is_published'))
             <span class="help-block">{!! $errors->first('is_published') !!}</span>
             @endif
