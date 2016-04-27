@@ -92,6 +92,7 @@ class SliderController extends Controller
         $slider->title = $formData['title'];
         $slider->link = $formData['link'];
         $slider->description = $formData['description'];
+        $slider->is_published = isset($formData['is_published']) ? true : false;
 
         $slider->save();
 
@@ -152,6 +153,7 @@ class SliderController extends Controller
         }
         $slider->title = $formData['title'];
         $slider->description = $formData['description'];
+        $slider->is_published = isset($formData['is_published']) ? true : false;
         $slider->save();
 
         Flash::message('Slider was successfully updated');

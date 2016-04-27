@@ -46,9 +46,7 @@
              <div class="col-md-3 col-sm-6">
                 <h4>{!!trans('fully.about_us')!!}</h4>
 
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
-
-                <p>Pellentesque habitant morbi tristique senectus.</p>
+                {!! $aboutFeature->content !!}
                 <hr>
                 <ul class="social clearfix">
                     <li><a href="{!! $settings['facebook'] !!}" title="Catcom Facebook" data-original-title="Facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook icon-facebook"></i></a></li>

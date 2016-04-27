@@ -28,5 +28,9 @@ return array(
     'address'               => 'Address',
     'latest_blog'           => 'Latest news',
     'about_us'              => 'About us',
-    'tags'                  => 'Tags'
+    'tags'                  => 'Tags',
+    'partners'              => 'Our partners',
+    'partnerDes'            => 'The top of partners',
+    'testimonials'          => 'What our clients say',
+    'testimonialDes'        => 'What our clients say'
 );

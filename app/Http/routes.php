@@ -47,6 +47,10 @@ Route::group(array('prefix' => LaravelLocalization::getCurrentLocale(), 'before'
     Route::get('/page', array('as' => 'dashboard.page', 'uses' => 'PageController@index'));
     Route::get('/page/{slug}', array('as' => 'dashboard.page.show', 'uses' => 'PageController@show'));
 
+    // feature
+    Route::get('/feature', array('as' => 'dashboard.feature', 'uses' => 'FeatureController@index'));
+    Route::get('/feature/{group}', array('as' => 'dashboard.feature.show', 'uses' => 'FeatureController@show'));
+
     // photo gallery
     Route::get('/photo-gallery/{slug}', array('as' => 'dashboard.photo_gallery.show',
                                               'uses' => 'PhotoGalleryController@show', ));
@@ -134,6 +138,11 @@ Route::group(array('prefix' => LaravelLocalization::getCurrentLocale()), functio
         Route::get('page/{id}/delete', array('as' => 'admin.page.delete',
                                              'uses' => 'PageController@confirmDestroy', ))->where('id', '[0-9]+');
 
+        // feature
+        Route::resource('feature', 'FeatureController');
+        Route::get('feature/{id}/delete', array('as' => 'admin.feature.delete',
+                                             'uses' => 'FeatureController@confirmDestroy', ))->where('id', '[0-9]+');
+
         // photo gallery
         Route::resource('photo-gallery', 'PhotoGalleryController');
         Route::get('photo-gallery/{id}/delete', array('as' => 'admin.photo-gallery.delete',
@@ -165,6 +174,10 @@ Route::group(array('prefix' => LaravelLocalization::getCurrentLocale()), functio
                                                       'uses' => 'PageController@togglePublish', ))->where('id', '[0-9]+');
         Route::post('page/{id}/toggle-menu', array('as' => 'admin.page.toggle-menu',
                                                    'uses' => 'PageController@toggleMenu', ))->where('id', '[0-9]+');
+
+        // ajax - feature
+        Route::post('feature/{id}/toggle-publish', array('as' => 'admin.feature.toggle-publish',
+                                                      'uses' => 'FeatureController@togglePublish', ))->where('id', '[0-9]+');
 
         // ajax - form post
         Route::post('form-post/{id}/toggle-answer', array('as' => 'admin.form-post.toggle-answer',

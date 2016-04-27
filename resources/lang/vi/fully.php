@@ -28,5 +28,9 @@ return array(
     'address'               => 'Địa chỉ',
     'latest_blog'           => 'Bài viết mới nhất',
     'about_us'              => 'Về chúng tôi',
-    'tags'                  => 'Thẻ'
+    'tags'                  => 'Thẻ',
+    'partners'              => 'Đối tác',
+    'partnerDes'            => 'Khách hàng nổi bật',
+    'testimonials'          => 'Ý kiến khách hàng',
+    'testimonialDes'        => 'Phản hồi của những khách hàng thân thiết'
 );

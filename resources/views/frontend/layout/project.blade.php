@@ -3,9 +3,9 @@
         <div class="row">
 
             <div class="col-md-3">
-                <h3>Our Latest Project</h3>
+                <h3>{!! $projectFeature->title !!}</h3>
 
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                {!! $projectFeature->content !!}
 
                 <div class="btn-group">
                     <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>

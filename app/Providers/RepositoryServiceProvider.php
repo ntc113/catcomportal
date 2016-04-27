@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Fully\Models\Article;
 use Fully\Models\Category;
 use Fully\Models\Page;
+use Fully\Models\Feature;
 use Fully\Models\Faq;
 use Fully\Models\News;
 use Fully\Models\PhotoGallery;
@@ -20,6 +21,8 @@ use Fully\Repositories\Article\ArticleRepository;
 use Fully\Repositories\Article\CacheDecorator as ArticleCacheDecorator;
 use Fully\Repositories\Category\CategoryRepository;
 use Fully\Repositories\Category\CacheDecorator as CategoryCacheDecorator;
+use Fully\Repositories\Feature\FeatureRepository;
+use Fully\Repositories\Feature\CacheDecorator as FeatureCacheDecorator;
 use Fully\Repositories\Page\PageRepository;
 use Fully\Repositories\Page\CacheDecorator as PageCacheDecorator;
 use Fully\Repositories\Faq\FaqRepository;
@@ -111,6 +114,23 @@ class RepositoryServiceProvider extends ServiceProvider
             }
 
             return $page;
+        });
+
+        // feature
+        $app->bind('Fully\Repositories\Feature\FeatureInterface', function ($app) {
+
+            $feature = new FeatureRepository(
+                new Feature()
+            );
+
+            if ($app['config']->get('fully.cache') === true && $app['config']->get('is_admin', false) == false) {
+                $feature = new FeatureCacheDecorator(
+                    $feature,
+                    new FullyCache($app['cache'], 'pages')
+                );
+            }
+
+            return $feature;
         });
 
         // faq

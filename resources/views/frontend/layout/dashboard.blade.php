@@ -12,30 +12,16 @@
             </div>
         </div>
         <div class="row">
+            @foreach($coreValueFeature as $f)
             <div class="col-md-4 col-sm-6">
                 <div class="media">
                     <div class="media-body">
-                        <h3 class="media-heading">Creative</h3>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                        <h3 class="media-heading">{!! $f->title !!}</h3>
+                        {!! $f->content !!}
                     </div>
                 </div>
             </div><!--/.col-md-4-->
-            <div class="col-md-4 col-sm-6">
-                <div class="media">
-                    <div class="media-body">
-                        <h3 class="media-heading">Disparity</h3>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>
-            </div><!--/.col-md-4-->
-            <div class="col-md-4 col-sm-6">
-                <div class="media">
-                    <div class="media-body">
-                        <h3 class="media-heading">Profession</h3>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>
-            </div><!--/.col-md-4-->
+            @endforeach
         </div>
     </div>
 </section><!--/#services-->
@@ -47,8 +33,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center">
-                    <h2>What our clients say</h2>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <h2>{!! trans('fully.testimonials') !!}</h2>
+                    <p>{!! trans('fully.testimonialDes') !!}</p>
                 </div>
                 <div class="gap"></div>
                 <div class="row">

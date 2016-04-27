@@ -20,14 +20,20 @@ use Fully\Exceptions\Validation\ValidationException;
 class FeatureController extends Controller
 {
     protected $feature;
-    protected $perFeature;
+    protected $perPage;
+    protected $group;
 
     public function __construct(FeatureInterface $feature)
     {
         View::share('active', 'modules');
 
         $this->feature = $feature;
-        $this->perFeature = config('fully.per_feature');
+        $this->perPage = config('fully.per_page');
+        $this->group = array(
+                'core_value' => 'Core value',
+                'project' => 'Project Des',
+                'about' => 'About Us'
+            );
     }
 
     /**
@@ -37,8 +43,8 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        $pagiData = $this->feature->paginate(Input::get('feature', 1), $this->perFeature, true);
-        $features = Pagination::makeLengthAware($pagiData->items, $pagiData->totalItems, $this->perFeature);
+        $pagiData = $this->feature->paginate(Input::get('feature', 1), $this->perPage, true);
+        $features = Pagination::makeLengthAware($pagiData->items, $pagiData->totalItems, $this->perPage);
 
         return view('backend.feature.index', compact('features'));
     }
@@ -50,7 +56,8 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        return view('backend.feature.create');
+        $group = $this->group;
+        return view('backend.feature.create', compact('group'));
     }
 
     /**
@@ -94,8 +101,9 @@ class FeatureController extends Controller
     public function edit($id)
     {
         $feature = $this->feature->find($id);
+        $group = $this->group;
 
-        return view('backend.feature.edit', compact('feature'));
+        return view('backend.feature.edit', compact('feature', 'group'));
     }
 
     /**
