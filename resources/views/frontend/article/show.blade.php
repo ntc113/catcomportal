@@ -22,8 +22,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Blog Item</h1>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                <h1>{!!$article->title!!}</h1>
+                <!-- <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p> -->
             </div>
             <div class="col-sm-6">
                 @yield('partial/breadcrumbs', Breadcrumbs::render('blog.post.show', $article))

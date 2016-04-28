@@ -53,17 +53,17 @@ class FormPostController extends Controller
             return Redirect::action('FormPostController@getContact')->withErrors($validation)->withInput();
         }
 
-        /*
+        
         Mail::send('emails.contact-form.form', $formData, function ($message) {
             $message->from($request->get('sender_email'), $request->get('sender_name_surname'));
-            $message->to('noreply@fullycms.com', 'Lorem Lipsum')->subject($request->get('subject'));
+            $message->to('congnt@catcom.vn', 'Mr CongNT')->subject($request->get('subject'));
         });
-        */
+        
 
-        /*
-        $mailer = new Mailer;
-        $mailer->send('emails.contact-form.form', 'admin@fullycms.com', $request->get('subject'), $formData);
-        */
+        
+        /*$mailer = new Mailer;
+        $mailer->send('emails.contact-form.form', 'admin@fullycms.com', $request->get('subject'), $formData);*/
+        
 
         $formPost = new FormPost();
         $formPost->sender_name_surname = $formData['sender_name_surname'];

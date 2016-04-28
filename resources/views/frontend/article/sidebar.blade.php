@@ -1,7 +1,7 @@
 <aside class="col-sm-4 col-sm-push-8">
 @include('frontend/elements/search')
     <div class="widget categories">
-        <h3>Blog Categories</h3>
+        <h3>{!! trans('fully.category') !!}</h3>
 
         <div class="row">
             <div class="col-sm-6">
@@ -26,7 +26,7 @@
     </div>
     <!--/.categories-->
     <div class="widget tags">
-        <h3>Tag Cloud</h3>
+        <h3>{!! trans('fully.tags') !!}</h3>
         <ul class="tag-cloud">
             @foreach($tags as $tag)
             <li>

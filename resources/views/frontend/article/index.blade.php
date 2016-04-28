@@ -20,9 +20,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Blog</h1>
+                <h1>{!!trans('fully.blog')!!}</h1>
 
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                <p>{!!trans('fully.blog_des')!!}</p>
             </div>
             <div class="col-sm-6">
                 @yield('partial/breadcrumbs', Breadcrumbs::render('blog', $articles))

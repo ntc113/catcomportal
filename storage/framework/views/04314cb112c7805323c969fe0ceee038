@@ -1,0 +1,39 @@
+<aside class="col-sm-4 col-sm-push-8">
+<?php echo $__env->make('frontend/elements/search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="widget categories">
+        <h3><?php echo trans('fully.category'); ?></h3>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="arrow">
+                    <?php foreach($categories->slice(0, round($categories->count()/2)) as $category): ?>
+                    <li>
+                        <a href="<?php echo URL::route('dashboard.category', array('category'=>$category->slug)); ?>"><?php echo $category->title; ?></a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul class="arrow">
+                    <?php foreach($categories->slice(round($categories->count()/2), ($categories->count())) as $category): ?>
+                    <li>
+                        <a href="<?php echo URL::route('dashboard.category', array('category'=>$category->slug)); ?>"><?php echo $category->title; ?></a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--/.categories-->
+    <div class="widget tags">
+        <h3><?php echo trans('fully.tag'); ?></h3>
+        <ul class="tag-cloud">
+            <?php foreach($tags as $tag): ?>
+            <li>
+                <a class="btn btn-xs btn-primary" href="<?php echo URL::route('dashboard.tag', array('tag'=>$tag->slug)); ?>"><?php echo $tag->name; ?></a>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <!--/.tags-->
+</aside>

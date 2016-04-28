@@ -32,5 +32,13 @@ return array(
     'partners'              => 'Đối tác',
     'partnerDes'            => 'Khách hàng nổi bật',
     'testimonials'          => 'Ý kiến khách hàng',
-    'testimonialDes'        => 'Phản hồi của những khách hàng thân thiết'
+    'testimonialDes'        => 'Phản hồi của những khách hàng thân thiết',
+
+    'blog'                  => 'Bài viết',
+    'category'              => 'Danh mục',
+    'blog_des'              => 'Thông tin công nghệ thông tin và truyền thông nổi bật',
+    'category_des'          => 'Chuyên mục bài viết',
+    'home'                  => 'Trang chủ',
+    'faq'                   => 'Hỏi đáp',
+    'contact_us'            => 'Liên hệ'
 );

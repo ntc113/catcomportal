@@ -1,0 +1,28 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::style('ckeditor/contents.css'); ?>
+
+
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1><?php echo $page->title; ?></h1>
+            </div>
+            <div class="col-sm-6">
+                <?php echo $__env->yieldContent('partial/breadcrumbs', Breadcrumbs::render('page.show', $page)); ?>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+<section class="container">
+    <div class="row">
+        <?php echo $page->content; ?>
+
+    </div>
+</section>
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

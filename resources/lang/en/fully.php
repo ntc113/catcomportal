@@ -32,5 +32,13 @@ return array(
     'partners'              => 'Our partners',
     'partnerDes'            => 'The top of partners',
     'testimonials'          => 'What our clients say',
-    'testimonialDes'        => 'What our clients say'
+    'testimonialDes'        => 'What our clients say',
+
+    'blog'                  => 'News',
+    'blog_des'              => 'News',
+    'category'              => 'Category',
+    'category_des'          => 'Category',
+    'home'                  => 'Home',
+    'faq'                   => 'Faq',
+    'contact_us'            => 'Contact us'
 );

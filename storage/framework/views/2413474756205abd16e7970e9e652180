@@ -1,0 +1,76 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::script('assets/js/moment-with-langs.min.js'); ?>
+
+<script type="text/javascript">
+    moment().format();
+    moment.lang('en');
+
+    jQuery(document).ready(function ($) {
+        var now = moment();
+        $('.time').each(function (i, e) {
+
+            var time = moment($(e).attr('datetime'));
+            $(e).html('<i class="icon-calendar"> ' + time.from(now) + '</i>');
+
+        });
+    });
+</script>
+
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1><?php echo trans('fully.blog'); ?></h1>
+
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+            </div>
+            <div class="col-sm-6">
+                <?php echo $__env->yieldContent('partial/breadcrumbs', Breadcrumbs::render('blog', $articles)); ?>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+<section id="blog" class="container">
+    <div class="row">
+    <?php echo $__env->make('frontend/article/sidebar', array($tags, $categories), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="col-sm-8 col-sm-pull-4">
+            <div class="blog">
+                <?php foreach($articles as $article): ?>
+                <div class="blog-item">
+                   <?php if($article->path): ?>
+                    <img class="img-responsive img-blog" src="<?php echo url($article->path . $article->file_name); ?>" style="border: 1px solid #bdc3c7;" width="100%" alt=""/>
+                   <?php else: ?>
+                    <img class="img-responsive img-blog" src="<?php echo url('assets/images/blog_default.png'); ?>" style="border: 1px solid #bdc3c7;" width="100%" style="height: 290px;" alt=""/>
+                   <?php endif; ?>
+
+                    <div class="blog-content">
+                        <a href="<?php echo URL::route('dashboard.article.show', array('slug'=>$article->slug)); ?>"><h3><?php echo $article->title; ?></h3></a>
+
+                        <div class="entry-meta">
+                            <span><i class="icon-user"></i> <a href="#">Sefa</a></span>
+                            <span datetime="<?php echo $article->created_at; ?>" class="time"></span>
+                        </div>
+                        <p><?php echo $article->content; ?></p>
+                        <a class="btn btn-default" href="<?php echo URL::route('dashboard.article.show', array('slug'=>$article->slug)); ?>">Read More <i class="icon-angle-right"></i></a>
+                    </div>
+                </div>
+                <!--/.blog-item-->
+                <?php endforeach; ?>
+
+                <ul class="pagination pagination-lg">
+                    <?php echo $articles->render(); ?>
+
+                </ul>
+
+                <!--/.pagination-->
+            </div>
+        </div>
+        <!--/.col-md-8-->
+    </div>
+    <!--/.row-->
+</section><!--/#blog-->
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -46,7 +46,7 @@
              <div class="col-md-3 col-sm-6">
                 <h4>{!!trans('fully.about_us')!!}</h4>
 
-                {!! $aboutFeature->content !!}
+                <!-- {{--{!! $aboutFeature->content !!}--}} -->
                 <hr>
                 <ul class="social clearfix">
                     <li><a href="{!! $settings['facebook'] !!}" title="Catcom Facebook" data-original-title="Facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook icon-facebook"></i></a></li>
