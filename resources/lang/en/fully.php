@@ -29,6 +29,7 @@ return array(
     'latest_blog'           => 'Latest news',
     'about_us'              => 'About us',
     'tags'                  => 'Tags',
+    'core_value'            => 'Core value',
     'partners'              => 'Our partners',
     'partnerDes'            => 'The top of partners',
     'testimonials'          => 'What our clients say',

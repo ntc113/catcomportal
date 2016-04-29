@@ -29,6 +29,7 @@ return array(
     'latest_blog'           => 'Bài viết mới nhất',
     'about_us'              => 'Về chúng tôi',
     'tags'                  => 'Thẻ',
+    'core_value'            => 'Giá trị cốt lõi',
     'partners'              => 'Đối tác',
     'partnerDes'            => 'Khách hàng nổi bật',
     'testimonials'          => 'Ý kiến khách hàng',

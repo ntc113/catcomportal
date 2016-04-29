@@ -46,7 +46,7 @@
              <div class="col-md-3 col-sm-6">
                 <h4>{!!trans('fully.about_us')!!}</h4>
 
-                <!-- {{--{!! $aboutFeature->content !!}--}} -->
+                {!! $aboutFeature->content !!}
                 <hr>
                 <ul class="social clearfix">
                     <li><a href="{!! $settings['facebook'] !!}" title="Catcom Facebook" data-original-title="Facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook icon-facebook"></i></a></li>
@@ -103,7 +103,7 @@
             </div>
 
             <div class="col-md-6 col-sm-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59591.249096755084!2d105.75236872219769!3d21.01455014097551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab55e433c57f%3A0x1a4a47e69eb3c80!2zQjNDLCBMUzIsIEtodSDEkcO0IHRo4buLIE5hbSBUcnVuZyBZw6puLCBUcnVuZyBIb8OgLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1461724512654" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59591.249096755084!2d105.75236872219769!3d21.01455014097551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab55e433c57f%3A0x1a4a47e69eb3c80!2zQjNDLCBMUzIsIEtodSDEkcO0IHRo4buLIE5hbSBUcnVuZyBZw6puLCBUcnVuZyBIb8OgLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1461724512654" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
