@@ -5,6 +5,7 @@ namespace Fully\Models;
 use URL;
 use Illuminate\Database\Eloquent\Model;
 use Fully\Repositories\Page\PageRepository;
+use Fully\Repositories\Category\CategoryRepository;
 use Fully\Repositories\PhotoGallery\PhotoGalleryRepository;
 
 /**
@@ -99,6 +100,7 @@ class Menu extends Model
     public function getMenuOptions()
     {
         $opts = array();
+        /* add pages to option */
         $page = new PageRepository(new Page());
         $pageOpts = $page->lists();
 
@@ -106,12 +108,20 @@ class Menu extends Model
             $opts['Page']['Fully\Models\Page-'.$k] = $v;
         }
 
-        $photoGallery = new PhotoGalleryRepository(new PhotoGallery());
+        /* add category to options */
+        $category = new CategoryRepository(new Category());
+        $categoryOpts = $category->lists();
+
+        foreach ($categoryOpts as $k => $v) {
+            $opts['Category']['Fully\Models\Category-'.$k] = $v;
+        }
+
+        /*$photoGallery = new PhotoGalleryRepository(new PhotoGallery());
         $photoGalleryOpts = $photoGallery->lists();
 
         foreach ($photoGalleryOpts as $k => $v) {
             $opts['PhotoGallery']['Fully\Models\PhotoGallery-'.$k] = $v;
-        }
+        }*/
 
         $menuOptions = array(
             'General' => array(
@@ -122,7 +132,9 @@ class Menu extends Model
                 'faq' => 'Faq',
                 'contact' => 'Contact', ),
             'Page' => (isset($opts['Page']) ? $opts['Page'] : array()),
-            'Photo Gallery' => (isset($opts['PhotoGallery']) ? $opts['PhotoGallery'] : array()), );
+            'Category' => (isset($opts['Category']) ? $opts['Category'] : array()),
+            // 'Photo Gallery' => (isset($opts['PhotoGallery']) ? $opts['PhotoGallery'] : array()), 
+            );
 
         return $menuOptions;
     }

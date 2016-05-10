@@ -46,7 +46,7 @@
              <div class="col-md-3 col-sm-6">
                 <h4>{!!trans('fully.about_us')!!}</h4>
 
-                {!! $aboutFeature->content !!}
+                {{--{!! $aboutFeature->content !!}--}}
                 <hr>
                 <ul class="social clearfix">
                     <li><a href="{!! $settings['facebook'] !!}" title="Catcom Facebook" data-original-title="Facebook" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-facebook icon-facebook"></i></a></li>
@@ -127,9 +127,9 @@
             </div>
             <div class="col-sm-4">
                 <ul class="pull-right">
-                    <li>{!! link_to_route('dashboard', 'Home') !!}</li>
-                    <li>{!! link_to_route('dashboard.faq', 'Faq') !!}</li>
-                    <li>{!! link_to_route('dashboard.contact', 'Contact Us') !!}</li>
+                    <li>{!! link_to_route('dashboard', trans('fully.home')) !!}</li>
+                    <li>{!! link_to_route('dashboard.faq', trans('fully.faq')) !!}</li>
+                    <li>{!! link_to_route('dashboard.contact', trans('fully.contact_us')) !!}</li>
                     <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li>
                     <!--#gototop-->
                 </ul>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title><?php echo isset($settings['site_title']) ? $settings['site_title'] : "CATCOM - Think distinction"; ?></title>
+    <meta name="description" content="<?php echo isset($meta_description) ? $meta_description : ($settings['meta_description']); ?>">
+    <meta name="keywords" content="<?php echo isset($meta_keywords) ? $meta_keywords : ($settings['meta_keywords']); ?>">
+    <meta name="author" content="Sefa Karagöz">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php echo HTML::script('assets/js/jquery.2.0.3.js'); ?>
+
+    <?php echo HTML::style("frontend/css/bootstrap.min.css"); ?>
+
+    <?php echo HTML::style("frontend/css/font-awesome.min.css"); ?>
+
+    <?php echo HTML::style("frontend/css/prettyPhoto.css"); ?>
+
+    <?php echo HTML::style("frontend/css/animate.css"); ?>
+
+    <?php echo HTML::style("frontend/css/main.css"); ?>
+
+    <?php echo HTML::style("assets/css/github-right.css"); ?>
+
+    <!--[if lt IE 9]>
+    <?php echo HTML::script("frontend/js/html5shiv.js"); ?>
+
+    <?php echo HTML::script("frontend/js/respond.min.js"); ?>
+
+    <![endif]-->
+    <link rel="shortcut icon" href="<?php echo url('favicon.ico'); ?>">
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', "<?php echo isset($settings['ga_code']) ? $settings['ga_code'] : 'UA-76417141-1'; ?>"]);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head><!--/head-->
+<body>
+<?php /* <?php echo $__env->make('frontend/layout/top', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
+<?php echo $__env->make('frontend/layout/menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->yieldContent('content'); ?>
+<?php echo $__env->make('frontend/layout/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo HTML::script("frontend/js/bootstrap.min.js"); ?>
+
+<?php echo HTML::script("frontend/js/jquery.prettyPhoto.js"); ?>
+
+<?php echo HTML::script("frontend/js/main.js"); ?>
+
+</body>
+</html>
