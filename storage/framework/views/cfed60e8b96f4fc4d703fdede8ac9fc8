@@ -1,0 +1,66 @@
+<section id="main-slider" class="no-margin">
+    <div class="carousel slide wet-asphalt">
+        <?php if($sliders->count() > 0): ?>
+         <ol class="carousel-indicators">
+            <?php
+            $active = true;
+            $i = 0;
+            ?>
+            <?php foreach($sliders as $slider): ?>
+            <li data-target="#main-slider" data-slide-to="<?php echo $i++; ?>" class="<?php echo (($active) ? 'active' : null); ?>"></li>
+            <?php $active = false; ?>
+            <?php endforeach; ?>
+        </ol>
+        <div class="carousel-inner">
+
+            <?php $active = true; ?>
+            <?php foreach($sliders as $slider): ?>
+
+            <div class="item <?php echo (($active) ? 'active' : null); ?>" style='background-image: url("<?php echo url($slider->path); ?>")'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-content centered">
+                                <h2 class="animation animated-item-1"><?php echo $slider->title; ?></h2>
+
+                                <p class="animation animated-item-2"><?php echo $slider->description; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.item-->
+            <?php $active = false; ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+         <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#main-slider"></li>
+            </ol>
+        <div class="carousel-inner">
+                    <div style='background-image: url("<?php echo url('assets/images/default_slider.png'); ?>")' class="item active">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="carousel-content centered" style="margin-top: 265px;">
+                                        <h2 class="animation animated-item-1">Lorem ipsum</h2>
+
+                                        <p class="animation animated-item-2">Aenean ornare erat sed semper gravida</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.item-->
+                </div>
+        <?php endif; ?>
+        </div>
+        <!--/.carousel-inner-->
+    </div>
+    <!--/.carousel-->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <i class="icon-angle-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+        <i class="icon-angle-right"></i>
+    </a>
+</section><!--/#main-slider-->

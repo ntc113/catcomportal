@@ -1,0 +1,179 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::style('assets/bootstrap/css/bootstrap-tagsinput.css'); ?>
+
+<?php echo HTML::style('jasny-bootstrap/css/jasny-bootstrap.min.css'); ?>
+
+<?php echo HTML::script('jasny-bootstrap/js/jasny-bootstrap.min.js'); ?>
+
+<?php echo HTML::script('ckeditor/ckeditor.js'); ?>
+
+<?php echo HTML::script('assets/bootstrap/js/bootstrap-tagsinput.js'); ?>
+
+<?php echo HTML::script('assets/js/jquery.slug.js'); ?>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#title").slug();
+    });
+</script>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1> Article <small> | Add Article</small> </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url(getLang() . '/admin/article'); ?>"><i class="fa fa-book"></i> Article</a></li>
+        <li class="active">Add Article</li>
+    </ol>
+</section>
+<br>
+<br>
+<div class="container">
+
+    <?php echo Form::open(array('action' => '\Fully\Http\Controllers\Admin\ArticleController@store', 'files'=>true)); ?>
+
+
+    <!-- Title -->
+    <div class="control-group <?php echo $errors->has('title') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="title">Title</label>
+
+        <div class="controls">
+            <?php echo Form::text('title', null, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))); ?>
+
+            <?php if($errors->first('title')): ?>
+            <span class="help-block"><?php echo $errors->first('title'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+
+    <!-- Tag -->
+    <div class="control-group <?php echo $errors->has('tag') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="title">Tag</label>
+
+        <div class="controls">
+            <?php echo Form::text('tag', null, array('class'=>'form-control', 'id' => 'tag', 'placeholder'=>'Tag', 'value'=>Input::old('tag'))); ?>
+
+            <?php if($errors->first('tag')): ?>
+            <span class="help-block"><?php echo $errors->first('tag'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+
+    <!-- Category -->
+    <div class="control-group <?php echo $errors->has('category') ? 'error' : ''; ?>">
+        <label class="control-label" for="title">Category</label>
+
+        <div class="controls">
+            <?php echo Form::select('category', $categories, null, array('class' => 'form-control', 'value'=>Input::old('category'))); ?>
+
+            <?php if($errors->first('category')): ?>
+            <span class="help-block"><?php echo $errors->first('category'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+
+    <!-- Content -->
+    <div class="control-group <?php echo $errors->has('content') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="title">Content</label>
+
+        <div class="controls">
+            <?php echo Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>Input::old('content'))); ?>
+
+            <?php if($errors->first('content')): ?>
+            <span class="help-block"><?php echo $errors->first('content'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th-list">
+                </span>META DATA</a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- Meta Description -->
+                        <div class="control-group <?php echo $errors->has('meta_description') ? 'has-error' : ''; ?>">
+                            <label class="control-label" for="title">Meta Description</label>
+
+                            <div class="controls">
+                                <?php echo Form::text('meta_description', null, array('class'=>'form-control', 'id' => 'meta_description', 'placeholder'=>'Meta Description', 'value'=>Input::old('meta_description'))); ?>
+
+                                <?php if($errors->first('meta_description')): ?>
+                                <span class="help-block"><?php echo $errors->first('meta_description'); ?></span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <!-- Meta Keywords -->
+                        <div class="control-group <?php echo $errors->has('meta_keywords') ? 'has-error' : ''; ?>">
+                            <label class="control-label" for="title">Meta Keywords</label>
+
+                            <div class="controls">
+                                <?php echo Form::textarea('meta_keywords', null, array('class'=>'form-control', 'id' => 'meta_keywords', 'placeholder'=>'Meta Keywords', 'value'=>Input::old('meta_keywords'))); ?>
+
+                                <?php if($errors->first('meta_keywords')): ?>
+                                <span class="help-block"><?php echo $errors->first('meta_keywords'); ?></span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image -->
+    <div class="fileinput fileinput-new control-group <?php echo $errors->has('image') ? 'has-error' : ''; ?>" data-provides="fileinput">
+        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+        <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span> <?php echo Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>Input::old('image'))); ?>
+
+      <?php if($errors->first('image')): ?> <span class="help-block"><?php echo $errors->first('image'); ?></span> <?php endif; ?> </span> <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
+    </div>
+    <br>
+
+    <!-- Published -->
+    <div class="control-group <?php echo $errors->has('is_published') ? 'has-error' : ''; ?>">
+
+        <div class="controls">
+            <label class=""><?php echo Form::checkbox('is_published', 'is_published'); ?> Publish ?</label>
+            <?php if($errors->first('is_published')): ?>
+            <span class="help-block"><?php echo $errors->first('is_published'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+
+    <?php echo Form::submit('Create', array('class' => 'btn btn-success')); ?>
+
+    <?php echo Form::close(); ?>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            CKEDITOR.replace('content', {
+                "filebrowserBrowseUrl": "<?php echo url('filemanager/show'); ?>"
+            });
+        };
+
+        $(document).ready(function () {
+
+            if ($('#tag').length != 0) {
+                var elt = $('#tag');
+                elt.tagsinput();
+            }
+        });
+    </script>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

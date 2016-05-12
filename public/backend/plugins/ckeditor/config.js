@@ -4,6 +4,13 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
+	
+    config.filebrowserBrowseUrl = 'F:/congnt_git/laravel/fullycms/public/kcfinder/browse.php?opener=ckeditor&type=files';
+    config.filebrowserImageBrowseUrl = 'F:/congnt_git/laravel/fullycms/public/kcfinder/browse.php?opener=ckeditor&type=images';
+    config.filebrowserFlashBrowseUrl = 'F:/congnt_git/laravel/fullycms/public/kcfinder/browse.php?opener=ckeditor&type=flash';
+    config.filebrowserUploadUrl = 'F:/congnt_git/laravel/fullycms/public/kcfinder/upload.php?opener=ckeditor&type=files';
+    config.filebrowserImageUploadUrl = 'F:/congnt_git/laravel/fullycms/public/kcfinder/upload.php?opener=ckeditor&type=images';
+    config.filebrowserFlashUploadUrl = 'F:/congnt_git/laravel/fullycms/public/kcfinder/upload.php?opener=ckeditor&type=flash';
 	// Define changes to default configuration here.
 	// For the complete reference:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config

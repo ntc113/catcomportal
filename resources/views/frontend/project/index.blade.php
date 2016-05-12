@@ -32,13 +32,14 @@
         <li class="portfolio-item apps">
             <div class="item-inner">
                @if($project->path)
-                <img src="{!! url($project->path . 'thumb_' . $project->file_name) !!}" alt="">
+                <img src="{!! url($project->path . 'thumb_' . $project->file_name) !!}" alt="{!! $project->title !!}">
                @else
-                <img src="{!! url('assets/images/project_thumb.png') !!}" alt="">
+                <img src="{!! url('assets/images/project_thumb.png') !!}" alt="{!! $project->title !!}">
                @endif
                 <h5>{!! $project->title !!}</h5>
                 <div class="overlay">
                 @if($project->path)
+                <!-- filename: $project->file_name -->
                     <a class="preview btn btn-danger" href="{!! url($project->path . $project->file_name) !!}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                 @else
                     <a class="preview btn btn-danger" href="{!! url('assets/images/default.png') !!}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
