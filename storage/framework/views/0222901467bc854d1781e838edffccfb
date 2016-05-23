@@ -1,0 +1,33 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::style('ckeditor/contents.css'); ?>
+
+
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1><?php echo $project->title; ?></h1>
+                <!-- <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p> -->
+            </div>
+            <div class="col-sm-6">
+                <?php echo $__env->yieldContent('partial/breadcrumbs', Breadcrumbs::render('project.show', $project)); ?>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+<section id="project" class="container">
+    <h2><?php echo $project->title; ?></h2>
+    <h6 class="pull-right"><?php echo $project->created_at; ?></h6>
+    <br>
+    <br>
+    <?php if($project->path): ?>
+    <img style="border: 1px solid #b0afaf; padding:5px; float:left; margin-right: 20px; margin-bottom: 10px;" src="<?php echo url($project->path . 'thumb_' . $project->file_name); ?>" class="img-square center-block">
+    <?php else: ?>
+    <img style="border: 1px solid #b0afaf; padding:5px; float:left; margin-right: 20px; margin-bottom: 10px;" src="<?php echo url('assets/images/project_thumb.png'); ?>" class="img-square center-block">
+    <?php endif; ?>
+    <?php echo $project->description; ?>
+
+</section><!--#faqs-->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

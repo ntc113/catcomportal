@@ -1,18 +1,18 @@
-@extends('frontend/layout/layout')
-@section('content')
-{!! HTML::style('ckeditor/contents.css') !!}
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::style('ckeditor/contents.css'); ?>
+
 
 <section id="title" class="emerald">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>{!!trans('fully.faq')!!}</h1>
+                <h1><?php echo trans('fully.faq'); ?></h1>
                 <!-- <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p> -->
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb">
-                    <li><a href="#">{!!trans('fully.home')!!}</a></li>
-                    <li class="active">{!!trans('fully.faq')!!}</li>
+                    <li><a href="#"><?php echo trans('fully.home'); ?></a></li>
+                    <li class="active"><?php echo trans('fully.faq'); ?></li>
                 </ol>
             </div>
         </div>
@@ -23,18 +23,20 @@
 <section id="faqs" class="container">
     <ul class="faq unstyled">
         <?php $i = 1; ?>
-        @foreach($faqs as $faq)
+        <?php foreach($faqs as $faq): ?>
         <li>
             <span class="number"><?=$i?></span>
             <div>
-                <h4>{!! $faq->question !!}</h4>
-                <p>{!! $faq->answer !!}</p>
+                <h4><?php echo $faq->question; ?></h4>
+                <p><?php echo $faq->answer; ?></p>
             </div>
         </li>
         <?php $i++?>
-        @endforeach
+        <?php endforeach; ?>
     </ul>
 </section><!--#faqs-->
-@stop
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

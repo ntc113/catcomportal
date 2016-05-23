@@ -110,7 +110,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" id="<?php echo $article->id; ?>" class="publish">
+                                    <a href="#" id="<?php echo $article->id; ?>" class="hot">
                                         <img id="publish-image-<?php echo $article->id; ?>" src="<?php echo url('/'); ?>/assets/images/<?php echo ($article->is_hot) ? 'publish.png' : 'not_publish.png'; ?>"/>
                                     </a>
                                 </td>

@@ -2,13 +2,13 @@
 
 Breadcrumbs::register('home', function ($breadcrumbs) {
 
-    $breadcrumbs->push('Home', route('dashboard'));
+    $breadcrumbs->push(trans('fully.home'), route('dashboard'));
 });
 
 Breadcrumbs::register('blog', function ($breadcrumbs) {
 
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Blog', route('dashboard.article'));
+    $breadcrumbs->push(trans('fully.blog'), route('dashboard.article'));
 });
 
 Breadcrumbs::register('blog.post.show', function ($breadcrumbs, $article) {
@@ -26,13 +26,13 @@ Breadcrumbs::register('page.show', function ($breadcrumbs, $page) {
 Breadcrumbs::register('contact', function ($breadcrumbs) {
 
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Contact', route('dashboard.contact'));
+    $breadcrumbs->push(trans('fully.contact_us'), route('dashboard.contact'));
 });
 
 Breadcrumbs::register('news', function ($breadcrumbs) {
 
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('News', route('dashboard.news'));
+    $breadcrumbs->push(trans('fully.news'), route('dashboard.news'));
 });
 
 Breadcrumbs::register('news.show', function ($breadcrumbs, $news) {
@@ -50,7 +50,7 @@ Breadcrumbs::register('photo_gallery.show', function ($breadcrumbs, $photo_galle
 Breadcrumbs::register('video', function ($breadcrumbs) {
 
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Video', route('dashboard.video'));
+    $breadcrumbs->push(trans('fully.video'), route('dashboard.video'));
 });
 
 Breadcrumbs::register('video.show', function ($breadcrumbs, $video) {
@@ -62,7 +62,7 @@ Breadcrumbs::register('video.show', function ($breadcrumbs, $video) {
 Breadcrumbs::register('project', function ($breadcrumbs) {
 
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Project', route('dashboard.project'));
+    $breadcrumbs->push(trans('fully.projects'), route('dashboard.project'));
 });
 
 Breadcrumbs::register('project.show', function ($breadcrumbs, $project) {

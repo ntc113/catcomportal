@@ -1,6 +1,6 @@
-@extends('frontend/layout/layout')
-@section('content')
-{!! HTML::script('assets/js/moment-with-langs.min.js') !!}
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::script('assets/js/moment-with-langs.min.js'); ?>
+
 <script type="text/javascript">
     moment().format();
     moment.lang('en');
@@ -20,14 +20,14 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>{!!trans('fully.category')!!}</h1>
+                <h1><?php echo trans('fully.category'); ?></h1>
 
                 <!-- <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p> -->
             </div>
             <div class="col-sm-6">
 
                 <ol class="breadcrumb">
-                    <li><a href="#">{!!trans('fully.home')!!}</a></li>
+                    <li><a href="#"><?php echo trans('fully.home'); ?></a></li>
                     <li class="active"></li>
                 </ol>
             </div>
@@ -37,29 +37,30 @@
 
 <section id="blog" class="container">
     <div class="row">
-    @include('frontend/article/sidebar', array($tags, $categories))
+    <?php echo $__env->make('frontend/article/sidebar', array($tags, $categories), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="col-sm-8 col-sm-pull-4">
             <div class="blog">
-                @foreach($articles as $article)
+                <?php foreach($articles as $article): ?>
                 <div class="blog-item">
-                    <img class="img-responsive img-blog" src="{!! url($article->path . $article->file_name) !!}" width="100%" alt=""/>
+                    <img class="img-responsive img-blog" src="<?php echo url($article->path . $article->file_name); ?>" width="100%" alt=""/>
 
                     <div class="blog-content">
-                        <a href="{!! URL::route('dashboard.article.show', array('slug'=>$article->slug)) !!}"><h3>{!! $article->title !!}</h3></a>
+                        <a href="<?php echo URL::route('dashboard.article.show', array('slug'=>$article->slug)); ?>"><h3><?php echo $article->title; ?></h3></a>
 
                         <div class="entry-meta">
                             <span><i class="icon-user"></i> <a href="#">Sefa</a></span>
-                            <span datetime="{!! $article->created_at !!}" class="time"></span>
+                            <span datetime="<?php echo $article->created_at; ?>" class="time"></span>
                         </div>
-                        <p>{!! $article->content !!}</p>
-                        <a class="btn btn-default" href="{!! URL::route('dashboard.article.show', array('slug'=>$article->slug)) !!}">{!! trans('fully.read_more')!!} <i class="icon-angle-right"></i></a>
+                        <p><?php echo $article->content; ?></p>
+                        <a class="btn btn-default" href="<?php echo URL::route('dashboard.article.show', array('slug'=>$article->slug)); ?>"><?php echo trans('fully.read_more'); ?> <i class="icon-angle-right"></i></a>
                     </div>
                 </div>
                 <!--/.blog-item-->
-                @endforeach
+                <?php endforeach; ?>
 
                 <ul class="pagination pagination-lg">
-                    {!! $articles->render() !!}
+                    <?php echo $articles->render(); ?>
+
                 </ul>
 
                 <!--/.pagination-->
@@ -69,5 +70,7 @@
     </div>
     <!--/.row-->
 </section><!--/#blog-->
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

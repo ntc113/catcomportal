@@ -53,8 +53,8 @@ return [
                 'height' => 290
             ],
             'thumb_size' => [
-                'width'  => 64,
-                'height' => 64
+                'width'  => 32,
+                'height' => 32
             ],
 
             'image_dir' => '/uploads/article/',

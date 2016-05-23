@@ -3,44 +3,48 @@
 return array(
 
     /* footer start */
-    'newsletter'          => 'Newsletter',
+    'all_rights_reserved' => 'All rights reserved',
     'button_save'         => 'Save',
     'enter_your_email'    => 'Enter your email',
-    'all_rights_reserved' => 'All rights reserved',
+    'newsletter'          => 'Newsletter',
     /* footer end */
+
     /* contact page start */
+    'button_send'         => 'Send',
     'contact_form'        => 'Contact form',
-    'our_location'        => 'Our location',
-    'name_and_surname'    => 'Fullname',
     'email'               => 'Email',
+    'message'             => 'Message',
+    'name_and_surname'    => 'Fullname',
+    'our_location'        => 'Our location',
     'phone_number'        => 'Phone number',
     'subject'             => 'Subject',
-    'message'             => 'Message',
-    'button_send'         => 'Send',
     /* contact page end */
 
     /*pagination start*/
-    'link_previous'         =>'Previous',
     'link_next'             =>'Next',
+    'link_previous'         =>'Previous',
     /*pagination end*/
 
     /* common */
-    'address'               => 'Address',
-    'latest_blog'           => 'Latest news',
     'about_us'              => 'About us',
-    'tags'                  => 'Tags',
+    'address'               => 'Address',
     'core_value'            => 'Core value',
+    'latest_blog'           => 'Latest news',
     'partners'              => 'Our partners',
     'partnerDes'            => 'The top of partners',
-    'testimonials'          => 'What our clients say',
+    'tags'                  => 'Tags',
     'testimonialDes'        => 'What our clients say',
+    'testimonials'          => 'What our clients say',
 
     'blog'                  => 'News',
     'blog_des'              => 'News',
     'category'              => 'Category',
     'category_des'          => 'Category',
-    'home'                  => 'Home',
-    'faq'                   => 'Faq',
     'contact_us'            => 'Contact us',
+    'faq'                   => 'Faq',
+    'connect_us'            => 'Connect with us',
+    'home'                  => 'Home',
     'hot_news'              => 'Hot news',
+    'projects'              => 'Projects',
+    'read_more'             => 'Read more'
 );

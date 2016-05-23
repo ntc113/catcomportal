@@ -7,11 +7,16 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Projets</h1>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                <h1>{!!trans('fully.projects')!!}</h1>
+                <!-- <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p> -->
             </div>
             <div class="col-sm-6">
-               @yield('partial/breadcrumbs', Breadcrumbs::render('project', $projects))
+               <!-- @yield('partial/breadcrumbs', Breadcrumbs::render('project', $projects)) -->
+
+                <ol class="breadcrumb">
+                    <li><a href="#">{!!trans('fully.home')!!}</a></li>
+                    <li class="active">{!!trans('fully.projects')!!}</li>
+                </ol>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <div class="widget search">
-     <form action="<?php echo url('tr/search'); ?>" method="GET" role="search">
+     <form action="/<?php echo langUrl('/search'); ?>" method="GET" role="search">
         <div class="input-group">
             <input type="text" class="form-control" value="<?php echo isset($q) ? $q : null; ?>" name="search" autocomplete="off" placeholder="Search">
             <span class="input-group-btn">

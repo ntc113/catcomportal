@@ -11,9 +11,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Contact Us</h1>
+                <h1>{!!trans('fully.contact_us')!!}</h1>
 
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                <!-- <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p> -->
             </div>
             <div class="col-sm-6">
                 @yield('partial/breadcrumbs', Breadcrumbs::render('contact'))
