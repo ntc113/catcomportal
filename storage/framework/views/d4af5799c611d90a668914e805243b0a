@@ -33,31 +33,20 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center">
-                    <h2><?php echo trans('fully.testimonials'); ?></h2>
-                    <p><?php echo trans('fully.testimonialDes'); ?></p>
+                    <h2><?php echo trans('fully.hot_news'); ?></h2>
                 </div>
                 <div class="gap"></div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
+                    <?php foreach($hotArticles as $ha): ?>
+                    <div class="col-md-4 clearfix">
+                        <div class="hot-article-img">
+                            <img src="<?php echo url($ha->path . 'thumb_' . $ha->file_name); ?>" alt="">
+                        </div>
+                        <div class="hot-article-content">
+                            <a title="<?php echo $ha->title; ?>" href="<?php echo URL::route('dashboard.article.show', array('slug'=>$ha->slug)); ?>"><?php echo $ha->title; ?></a>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

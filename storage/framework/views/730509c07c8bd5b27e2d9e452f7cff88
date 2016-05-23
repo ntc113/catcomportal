@@ -27,9 +27,9 @@
                                     <div class="portfolio-item">
                                         <div class="item-inner">
                                             <?php if($item->path): ?>
-                                            <img class="img-responsive" src="<?php echo url($item->path . 'thumb_' . $item->file_name); ?>" alt="">
+                                            <img class="img-responsive" src="<?php echo url($item->path . 'thumb_' . $item->file_name); ?>" alt="<?php echo $item->title; ?>">
                                             <?php else: ?>
-                                            <img class="img-responsive" src="<?php echo url('assets/images/project_thumb.png'); ?>" alt="">
+                                            <img class="img-responsive" src="<?php echo url('assets/images/project_thumb.png'); ?>" alt="<?php echo $item->title; ?>">
                                             <?php endif; ?>
                                             <h5>
                                                 <?php echo $item->title; ?>
@@ -37,7 +37,7 @@
                                             </h5>
 
                                             <div class="overlay">
-                                                <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo url($item->path); ?>" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo url($item->path . $item->file_name); ?>" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                             </div>
                                         </div>
                                     </div>

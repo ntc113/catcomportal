@@ -41,5 +41,6 @@ return array(
     'category_des'          => 'Category',
     'home'                  => 'Home',
     'faq'                   => 'Faq',
-    'contact_us'            => 'Contact us'
+    'contact_us'            => 'Contact us',
+    'hot_news'              => 'Hot news',
 );

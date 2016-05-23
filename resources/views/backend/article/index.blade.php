@@ -62,7 +62,8 @@
                             <th>Created Date</th>
                             <th>Updated Date</th>
                             <th>Action</th>
-                            <th>Settings</th>
+                            <th>Publish</th>
+                            <th>Hot</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -107,6 +108,11 @@
                                 <td>
                                     <a href="#" id="{!! $article->id !!}" class="publish">
                                         <img id="publish-image-{!! $article->id !!}" src="{!! url('/') !!}/assets/images/{!! ($article->is_published) ? 'publish.png' : 'not_publish.png'  !!}"/>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#" id="{!! $article->id !!}" class="hot">
+                                        <img id="publish-image-{!! $article->id !!}" src="{!! url('/') !!}/assets/images/{!! ($article->is_hot) ? 'publish.png' : 'not_publish.png'  !!}"/>
                                     </a>
                                 </td>
                             </tr>

@@ -41,5 +41,6 @@ return array(
     'category_des'          => 'Chuyên mục bài viết',
     'home'                  => 'Trang chủ',
     'faq'                   => 'Hỏi đáp',
-    'contact_us'            => 'Liên hệ'
+    'contact_us'            => 'Liên hệ',
+    'hot_news'              => 'Tin nổi bật',
 );

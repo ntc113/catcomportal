@@ -1139,3 +1139,14 @@ hr.star-primary:after {
 }
 .btn.pre { left: 0;}
 .btn.next { right: 0;}
+.hot-article-img {
+    border: 1px solid #ccc;
+    float: left;
+    height: 32px;
+    margin-right: 10px;
+    overflow: hidden;
+    padding: 1px;
+    width: 32px;
+}
+.hot-article-content > a { color: #fff;}
+.hot-article-content > a:hover { color: #fff;}

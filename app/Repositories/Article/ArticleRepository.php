@@ -73,6 +73,16 @@ class ArticleRepository extends RepositoryAbstract implements ArticleInterface, 
     }
 
     /**
+     * @param $limit
+     *
+     * @return mixed
+     */
+    public function getHotArticles($limit)
+    {
+        return $this->article->orderBy('created_at', 'desc')->where('lang', $this->getLang())->where('is_hot', 1)->take($limit)->offset(0)->get();
+    }
+
+    /**
      * @return mixed
      */
     public function lists()

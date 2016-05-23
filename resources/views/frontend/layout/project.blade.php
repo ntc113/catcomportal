@@ -26,16 +26,16 @@
                                     <div class="portfolio-item">
                                         <div class="item-inner">
                                             @if($item->path)
-                                            <img class="img-responsive" src="{!! url($item->path . 'thumb_' . $item->file_name) !!}" alt="">
+                                            <img class="img-responsive" src="{!! url($item->path . 'thumb_' . $item->file_name) !!}" alt="{!! $item->title !!}">
                                             @else
-                                            <img class="img-responsive" src="{!! url('assets/images/project_thumb.png') !!}" alt="">
+                                            <img class="img-responsive" src="{!! url('assets/images/project_thumb.png') !!}" alt="{!! $item->title !!}">
                                             @endif
                                             <h5>
                                                 {!! $item->title !!}
                                             </h5>
 
                                             <div class="overlay">
-                                                <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="{!! url($item->path) !!}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="{!! url($item->path . $item->file_name) !!}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                             </div>
                                         </div>
                                     </div>

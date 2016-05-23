@@ -1,0 +1,109 @@
+<?php $__env->startSection('content'); ?>
+    <?php echo HTML::script('ckeditor/ckeditor.js'); ?>
+
+    <?php echo HTML::style('assets/bootstrap/css/bootstrap-tagsinput.css'); ?>
+
+    <?php echo HTML::style('jasny-bootstrap/css/jasny-bootstrap.min.css'); ?>
+
+    <?php echo HTML::script('assets/bootstrap/js/bootstrap-tagsinput.js'); ?>
+
+    <?php echo HTML::script('assets/js/jquery.slug.js'); ?>
+
+    <?php echo HTML::script('jasny-bootstrap/js/jasny-bootstrap.min.js'); ?>
+
+    <?php echo HTML::style('bootstrap_datepicker/css/datepicker.css'); ?>
+
+    <?php echo HTML::script('bootstrap_datepicker/js/bootstrap-datepicker.js'); ?>
+
+    <?php echo HTML::script('bootstrap_datepicker/js/locales/bootstrap-datepicker.tr.js'); ?>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#title").slug();
+
+            $('#datetime').datepicker({
+                format: "yyyy-mm-dd",
+                todayBtn: "linked",
+                orientation: "top auto"
+            });
+
+            if ($('#tag').length != 0) {
+                var elt = $('#tag');
+                elt.tagsinput();
+            }
+        });
+    </script>
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1> News <small> | Add News</small> </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?php echo url(getLang() . '/admin/news'); ?>"><i class="fa fa-bookmark"></i> News</a></li>
+            <li class="active">Add News</li>
+        </ol>
+    </section>
+    <br>
+    <br>
+    <div class="container">
+        <?php echo Form::open(array('action' => '\Fully\Http\Controllers\Admin\NewsController@store', 'files'=>true)); ?>
+
+        <!-- Title -->
+        <div class="control-group <?php echo $errors->has('title') ? 'has-error' : ''; ?>">
+            <label class="control-label" for="title">Title</label>
+
+            <div class="controls"> <?php echo Form::text('title', null, array('class'=>'form-control', 'id' => 'title',
+                'placeholder'=>'Title', 'value'=>Input::old('title'))); ?>
+
+                <?php if($errors->first('title')): ?> <span class="help-block"><?php echo $errors->first('title'); ?></span> <?php endif; ?>
+            </div>
+        </div>
+        <br>
+        <!-- Datetime -->
+        <div class="control-group <?php echo $errors->has('datetime') ? 'has-error' : ''; ?>">
+            <label class="control-label" for="title">Datetime</label>
+
+            <div class="controls"> <?php echo Form::text('datetime', null, array('class'=>'form-control', 'id' => 'datetime',
+                'value'=>Input::old('datetime'))); ?>
+
+                <?php if($errors->first('datetime')): ?>
+                    <span class="help-block"><?php echo $errors->first('datetime'); ?></span> <?php endif; ?> </div>
+        </div>
+        <br>
+        <!-- Content -->
+        <div class="control-group <?php echo $errors->has('content') ? 'has-error' : ''; ?>">
+            <label class="control-label" for="title">Content</label>
+
+            <div class="controls"> <?php echo Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content',
+                'placeholder'=>'Content', 'value'=>Input::old('content'))); ?>
+
+                <?php if($errors->first('content')): ?> <span class="help-block"><?php echo $errors->first('content'); ?></span> <?php endif; ?>
+            </div>
+        </div>
+        <br>
+        <!-- Image -->
+        <div class="fileinput fileinput-new control-group <?php echo $errors->has('image') ? 'has-error' : ''; ?>" data-provides="fileinput">
+            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+            <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span> <?php echo Form::file('image', null, array('class'=>'form-control', 'id' => 'image', 'placeholder'=>'Image', 'value'=>Input::old('image'))); ?>
+
+                    <?php if($errors->first('image')): ?> <span class="help-block"><?php echo $errors->first('image'); ?></span> <?php endif; ?> </span>
+                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div>
+        </div>
+        <br>
+        <!-- Published -->
+        <div class="control-group <?php echo $errors->has('is_published') ? 'has-error' : ''; ?>">
+            <div class="controls">
+                <label class=""><?php echo Form::checkbox('is_published', 'is_published'); ?> Publish ?</label>
+                <?php if($errors->first('is_published')): ?>
+                    <span class="help-block"><?php echo $errors->first('is_published'); ?></span> <?php endif; ?> </div>
+        </div>
+        <br> <?php echo Form::submit('Create', array('class' => 'btn btn-success')); ?> <?php echo Form::close(); ?>
+
+        <script type="text/javascript">
+            window.onload = function () {
+                CKEDITOR.replace('content', {
+                    "filebrowserBrowseUrl": "<?php echo url('filemanager/show'); ?>",
+                });
+            };
+        </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

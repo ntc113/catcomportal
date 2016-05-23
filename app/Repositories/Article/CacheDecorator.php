@@ -132,4 +132,24 @@ class CacheDecorator extends AbstractArticleDecorator
 
         return $articles;
     }
+
+    /**
+     * @param $limit
+     *
+     * @return mixed
+     */
+    public function getHotArticles($limit)
+    {
+        $key = md5(getLang().$limit.$this->cacheKey.'.hot');
+
+        if ($this->cache->has($key)) {
+            return $this->cache->get($key);
+        }
+
+        $articles = $this->article->getHotArticles($limit);
+
+        $this->cache->put($key, $articles);
+
+        return $articles;
+    }
 }

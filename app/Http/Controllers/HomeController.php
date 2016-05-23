@@ -4,6 +4,7 @@ namespace Fully\Http\Controllers;
 
 use Fully\Repositories\Feature\FeatureInterface;
 use Fully\Repositories\Project\ProjectInterface;
+use Fully\Repositories\Article\ArticleInterface;
 use Fully\Repositories\Partner\PartnerInterface;
 use Fully\Repositories\Slider\SliderInterface;
 use Fully\Repositories\Tag\TagInterface;
@@ -22,9 +23,10 @@ class HomeController extends Controller
     protected $feature;
     protected $tag;
 
-    public function __construct(SliderInterface $slider, PartnerInterface $partner, ProjectInterface $project, FeatureInterface $feature, TagInterface $tag)
+    public function __construct(SliderInterface $slider, ArticleInterface $article, PartnerInterface $partner, ProjectInterface $project, FeatureInterface $feature, TagInterface $tag)
     {
         $this->slider = $slider;
+        $this->article = $article;
         $this->partner = $partner;
         $this->project = $project;
         $this->feature = $feature;
@@ -36,6 +38,7 @@ class HomeController extends Controller
         $languages = LaravelLocalization::getSupportedLocales();
 
         $sliders = $this->slider->all()->where('is_published', 1);
+        $hotArticles = $this->article->getLastArticle(9);
         $partners = $this->partner->all()->where('is_published', 1);
         $features = $this->feature->all()->where('is_published', 1);
         $coreValue = array();
@@ -56,6 +59,6 @@ class HomeController extends Controller
         $projects = $this->project->all();
         $tags = $this->tag->all();
 
-        return view('frontend/layout/dashboard', compact('sliders', 'partners', 'projects', 'languages', 'tags', 'coreValueFeature', 'aboutFeature', 'projectFeature'));
+        return view('frontend/layout/dashboard', compact('sliders', 'hotArticles', 'partners', 'projects', 'languages', 'tags', 'coreValueFeature', 'aboutFeature', 'projectFeature'));
     }
 }

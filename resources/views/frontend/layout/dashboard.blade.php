@@ -33,31 +33,20 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="center">
-                    <h2>{!! trans('fully.testimonials') !!}</h2>
-                    <p>{!! trans('fully.testimonialDes') !!}</p>
+                    <h2>{!! trans('fully.hot_news') !!}</h2>
                 </div>
                 <div class="gap"></div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
+                    @foreach($hotArticles as $ha)
+                    <div class="col-md-4 clearfix">
+                        <div class="hot-article-img">
+                            <img src="{!! url($ha->path . 'thumb_' . $ha->file_name) !!}" alt="">
+                        </div>
+                        <div class="hot-article-content">
+                            <a title="{!! $ha->title !!}" href="{!! URL::route('dashboard.article.show', array('slug'=>$ha->slug)) !!}">{!! $ha->title !!}</a>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
