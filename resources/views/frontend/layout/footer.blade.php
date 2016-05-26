@@ -98,7 +98,7 @@
                     <strong>{!! $settings['cc_name'] !!}</strong><br>
                     {!! $settings['cc_address'] !!} <br>
 
-                    <abbr title="Phone">{!! trans('fully.phone_number')!!}: </abbr>{!! $settings['cc_phone'] !!}
+                    <strong>{!! trans('fully.phone_number')!!}: </strong>{!! $settings['cc_phone'] !!}
                 </address>
             </div>
 
@@ -138,3 +138,11 @@
     </div>
 </footer>
 <!--/#footer-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6&appId=409846552457141";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

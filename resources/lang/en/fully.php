@@ -46,5 +46,6 @@ return array(
     'home'                  => 'Home',
     'hot_news'              => 'Hot news',
     'projects'              => 'Projects',
-    'read_more'             => 'Read more'
+    'read_more'             => 'Read more',
+    'search'                => 'Search'
 );

@@ -46,5 +46,6 @@ return array(
     'home'                  => 'Trang chủ',
     'hot_news'              => 'Tin nổi bật',
     'projects'              => 'Các dự án',
-    'read_more'             => 'Xem thêm'
+    'read_more'             => 'Xem thêm',
+    'search'                => 'Tìm kiếm'
 );

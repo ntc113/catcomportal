@@ -50,9 +50,9 @@
                            <span><i class="icon-user"></i> <a href="#">Sefa</a></span>
                             <span datetime="{!! $article->created_at !!}" class="time"></span>
                         </div>
-
+			   <div class="fb-share-button" data-href="{!! URL::route('dashboard.article.show', array('slug'=>$article->slug)) !!}" data-layout="button_count" data-mobile-iframe="true"></div>
                         <p>{!! $article->content !!}</p>
-
+			   <div class="fb-share-button" data-href="{!! URL::route('dashboard.article.show', array('slug'=>$article->slug)) !!}" data-layout="button_count" data-mobile-iframe="true"></div>
                         <hr>
 
                         <div class="tags">

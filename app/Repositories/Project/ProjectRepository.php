@@ -79,7 +79,7 @@ class ProjectRepository extends RepositoryAbstract implements ProjectInterface, 
      */
     public function all()
     {
-        return $this->project->where('lang', $this->getLang())->get();
+        return $this->project->orderBy('created_at', 'DESC')->where('lang', $this->getLang())->get();
     }
 
     /**

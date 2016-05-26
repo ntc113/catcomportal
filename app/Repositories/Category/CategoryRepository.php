@@ -100,7 +100,7 @@ class CategoryRepository extends RepositoryAbstract implements CategoryInterface
      */
     public function getArticlesBySlug($slug)
     {
-        return $this->category->where('slug', $slug)->where('lang', $this->getLang())->first()->articles()->paginate($this->perPage);
+        return $this->category->where('slug', $slug)->where('lang', $this->getLang())->first()->articles()->orderBy('created_at', 'desc')->paginate($this->perPage);
     }
 
     /**

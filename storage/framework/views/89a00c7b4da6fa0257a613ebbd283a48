@@ -1,7 +1,7 @@
 <div class="widget search">
      <form action="/<?php echo langUrl('/search'); ?>" method="GET" role="search">
         <div class="input-group">
-            <input type="text" class="form-control" value="<?php echo isset($q) ? $q : null; ?>" name="search" autocomplete="off" placeholder="Search">
+            <input type="text" class="form-control" value="<?php echo isset($q) ? $q : null; ?>" name="search" autocomplete="off" placeholder="<?php echo trans('fully.search'); ?>">
             <span class="input-group-btn">
                 <button class="btn btn-danger" type="submit"><i class="icon-search"></i></button>
             </span>

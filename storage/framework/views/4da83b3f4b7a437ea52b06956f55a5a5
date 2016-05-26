@@ -98,7 +98,7 @@
                     <strong><?php echo $settings['cc_name']; ?></strong><br>
                     <?php echo $settings['cc_address']; ?> <br>
 
-                    <abbr title="Phone"><?php echo trans('fully.phone_number'); ?>: </abbr><?php echo $settings['cc_phone']; ?>
+                    <strong><?php echo trans('fully.phone_number'); ?>: </strong><?php echo $settings['cc_phone']; ?>
 
                 </address>
             </div>
